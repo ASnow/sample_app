@@ -1,0 +1,9 @@
+.container
+  .game
+
+
+script type="text/ng-template" id="/game.html"
+  .game-map
+    .game-map-item ng-repeat="item in items" ng-class="item.classes" ng-click="item.onClick()"
+
+script type="text/ng-template" id="/game/item.html"
