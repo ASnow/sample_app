@@ -8,6 +8,11 @@
 
 script type="text/ng-template" id="/game.html"
   .game-map
+    .game-map-note
+      ' Нажимайте на стрелочки для того, чтобы играть (по мотивам 
+      a href="http://gabrielecirulli.github.io/2048/"
+        | 2048
+      | ).
     .game-map-score
       | Очки: {{game.score}}
     .game-map-item ng-repeat="item in game.items" ng-class="item.classes" ng-click="item.onClick()" ng-bind="item.grade"

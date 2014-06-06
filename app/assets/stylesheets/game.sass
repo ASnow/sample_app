@@ -23,9 +23,12 @@ $cells: 3
 .game-map-cell
   @include cell
 
-.game-map-score
+.game-map-score, .game-map-note
   position: absolute
   left: ($cells+1)*($item-size+$item-padding)
+.game-map-note
+  top: 30px
+
 @mixin row($n)
   top: $n*($item-size+$item-padding)
 @mixin column($n)
