@@ -1,0 +1,41 @@
+$item-size: 80px
+$item-padding: 8px
+$cells: 3
+
+.playground-game
+  position: relative
+
+@mixin cell
+  border: 1px solid #ddd
+  border-radius: 4px
+  height: $item-size
+  width: $item-size
+  position: absolute
+
+.game-map-item
+  @include cell
+  background-size: cover
+  background-position: 50% 50%
+  transition: left 0.5s, top 0.5s, background 1s
+  z-index: 10
+  animation: fadein 2s
+
+.game-map-cell
+  @include cell
+
+.game-map-score
+  position: absolute
+  left: ($cells+1)*($item-size+$item-padding)
+@mixin row($n)
+  top: $n*($item-size+$item-padding)
+@mixin column($n)
+  left: $n*($item-size+$item-padding)
+
+@for $n from 0 through $cells
+  .row#{$n}
+    @include row($n)
+  .column#{$n}
+    @include column($n)
+@for $n from 0 through 8
+  .grade#{$n}
+    background-image: url('/assets/grades/'+$n+'.jpg')
